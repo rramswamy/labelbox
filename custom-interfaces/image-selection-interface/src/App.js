@@ -42,6 +42,7 @@ const ImagesWrapper = styled.div`
 
   div.image-wrapper {
     margin: 5px;
+    min-width: 150px;
     display: inline-block;
     vertical-align: top;
   }
