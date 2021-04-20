@@ -42,7 +42,12 @@ const ImagesWrapper = styled.div`
 
   div.image-wrapper {
     margin: 5px;
+<<<<<<< HEAD
     min-width: 150px;
+=======
+    min-width: 300px;
+    min-height: 300px;
+>>>>>>> ff55c6dc0ddf3dcd70466abeb6640d83ae7941b3
     display: inline-block;
     vertical-align: top;
   }
