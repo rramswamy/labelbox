@@ -13,7 +13,7 @@ const SECTION_PADDING = '10px';
 const MAX_BUTTONS_WRAPPER_WIDTH = '240px';
 
 const ButtonsWrapper = styled.div`
-  float: left;
+  float: right;
 
   button + button {
     margin-left: 10px;
