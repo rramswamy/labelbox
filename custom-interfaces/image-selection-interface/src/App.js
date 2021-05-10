@@ -13,7 +13,7 @@ const SECTION_PADDING = '10px';
 const MAX_BUTTONS_WRAPPER_WIDTH = '240px';
 
 const ButtonsWrapper = styled.div`
-  float: right;
+  float: left;
 
   button + button {
     margin-left: 10px;
@@ -37,7 +37,7 @@ const TopWrapper = styled.div`
 `;
 
 const ImagesWrapper = styled.div`
-  padding: 50px;
+  padding: 5px;
   width: 33%;
   border-top: ${props => props.hasReferenceImage ? '1px solid lightgray' : 'none'};
 
