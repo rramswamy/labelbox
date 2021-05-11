@@ -32,6 +32,7 @@ const TopWrapper = styled.div`
   }
 
   div.image-wrapper {
+    display: inline-block;
     margin-top: 10px;
     width: 300px;
   }
