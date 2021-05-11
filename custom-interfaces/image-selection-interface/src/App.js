@@ -42,7 +42,7 @@ const ImagesWrapper = styled.div`
   border-top: ${props => props.hasReferenceImage ? '1px solid lightgray' : 'none'};
 
   div.image-wrapper {
-    display: grid;
+    display: block;
     width:300px;
   }
 `;
