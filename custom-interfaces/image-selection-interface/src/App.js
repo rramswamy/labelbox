@@ -42,7 +42,10 @@ const ImagesWrapper = styled.div`
   border-top: ${props => props.hasReferenceImage ? '1px solid lightgray' : 'none'};
 
   div.image-wrapper {
-    margin-top: 5px;
+    height: auto;
+    width: 300px;
+
+    margin: 5px;
     display: inline-block;
     
   }
