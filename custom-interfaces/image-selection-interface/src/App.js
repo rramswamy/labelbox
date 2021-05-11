@@ -38,7 +38,7 @@ const TopWrapper = styled.div`
 
 const ImagesWrapper = styled.div`
   padding: 5px;
-  width: 200px;
+  width: 50%;
   border-top: ${props => props.hasReferenceImage ? '1px solid lightgray' : 'none'};
 
   div.image-wrapper {
