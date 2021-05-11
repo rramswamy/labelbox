@@ -23,7 +23,7 @@ const ButtonsWrapper = styled.div`
 const TopWrapper = styled.div`
   padding: ${SECTION_PADDING};
   > * {
-    display: inline-block;
+    display: block;
     vertical-align: top;
   }
 
