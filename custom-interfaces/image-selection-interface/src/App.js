@@ -33,7 +33,6 @@ const TopWrapper = styled.div`
 
   div.image-wrapper {
     margin-top: 10px;
-    width: 300px;
   }
 `;
 
@@ -43,7 +42,8 @@ const ImagesWrapper = styled.div`
   border-top: ${props => props.hasReferenceImage ? '1px solid lightgray' : 'none'};
 
   div.image-wrapper {
-    width:500px;
+    display: grid;
+    width:300px;
   }
 `;
 
