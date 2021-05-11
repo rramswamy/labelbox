@@ -43,8 +43,7 @@ const ImagesWrapper = styled.div`
   border-top: ${props => props.hasReferenceImage ? '1px solid lightgray' : 'none'};
 
   div.image-wrapper {
-    margin: 5px;
-    vertical-align: top;
+    width:500px;
   }
 `;
 
