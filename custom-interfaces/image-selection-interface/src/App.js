@@ -24,7 +24,7 @@ const TopWrapper = styled.div`
   padding: ${SECTION_PADDING};
   > * {
     display: inline;
-    width: 300px;
+    width: 500px;
     vertical-align: top;
   }
 
