@@ -43,7 +43,7 @@ const ImagesWrapper = styled.div`
 
   div.image-wrapper {
     margin: 5px;
-    display: inline-block;
+    display: table-column;
     width: 50%;
     vertical-align: top;
   }
