@@ -33,6 +33,7 @@ const TopWrapper = styled.div`
 
   div.image-wrapper {
     margin-top: 10px;
+    width: 300px;
   }
 `;
 
@@ -43,8 +44,7 @@ const ImagesWrapper = styled.div`
 
   div.image-wrapper {
     margin: 5px;
-    display: inline;
-    width: 300px;
+    display: inline-block;
     vertical-align: top;
   }
 `;
