@@ -32,7 +32,7 @@ const TopWrapper = styled.div`
   }
 
   div.image-wrapper {
-    display: inline-block;
+    display: inline;
     margin-top: 10px;
     width: 300px;
   }
@@ -45,7 +45,7 @@ const ImagesWrapper = styled.div`
 
   div.image-wrapper {
     margin: 5px;
-    display: inline-block;
+    display: inline;
     vertical-align: top;
   }
 `;
