@@ -23,8 +23,7 @@ const ButtonsWrapper = styled.div`
 const TopWrapper = styled.div`
   padding: ${SECTION_PADDING};
   > * {
-    display: inline;
-    width: 500px;
+    display: inline-block;
     vertical-align: top;
   }
 
@@ -44,7 +43,8 @@ const ImagesWrapper = styled.div`
 
   div.image-wrapper {
     margin: 5px;
-    display: inline-block;
+    display: inline;
+    width: 300px;
     vertical-align: top;
   }
 `;
