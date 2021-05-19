@@ -73,7 +73,7 @@ const renderImages = ({
 };
 
 const App = () => {
-  
+  /*  
     const [asset, setAsset] = useState(null);
     const [rejectedImages, setRejectedImages] = React.useState([]);
     const [flaggedImages, setFlaggedImages] = React.useState([]);
@@ -98,7 +98,7 @@ const App = () => {
         return () => { head.removeChild(link); }
     
       }, [darkMode]);
-    /*      
+        
     useEffect(() => {
 
         const _handleNewAsset = emittedAsset => {
