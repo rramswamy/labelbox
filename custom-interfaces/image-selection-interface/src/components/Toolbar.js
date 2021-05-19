@@ -48,7 +48,7 @@ export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSiz
             <div id="toolbarWrapper">
 
                 <Left disabled={!hasLeft} onClick={() => hasLeft ? onLeftClick() : null} style={{
-                    padding-top:10%
+                    padding-top:10%,
                 }} />
 
                     {
