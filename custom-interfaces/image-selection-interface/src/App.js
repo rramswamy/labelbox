@@ -1,18 +1,12 @@
-import * as React from "react";
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import { LinearProgress } from "@material-ui/core";
 import styled from "styled-components";
 
 import "./App.css";
 import Image from './components/Image';
 import JsonUtils from './utils/Json.utils';
-import Labelbox from './utils/labeling-api.js'
 
 import {Toolbar} from './components/Toolbar';
-
-
-
-
 //import asset from './data.json' //temp asset to run local
 
 const ImagesWrapper = styled.div`
@@ -76,17 +70,17 @@ const renderImages = ({
 const App = () => {
  
     const [asset, setAsset] = useState(null);
-    const [rejectedImages, setRejectedImages] = React.useState([]);
-    const [flaggedImages, setFlaggedImages] = React.useState([]);
-    const [isReview, setIsReview] = React.useState(false);
-    const [imgSize, setImgSize] = React.useState("small");
-    const [darkMode, setDarkMode] = React.useState(false);
+    const [rejectedImages, setRejectedImages] = useState([]);
+    const [flaggedImages, setFlaggedImages] = useState([]);
+    const [isReview, setIsReview] = useState(false);
+    const [imgSize, setImgSize] = useState("small");
+    const [darkMode, setDarkMode] = useState(false);
 
-    React.useEffect(() => {
+    useEffect(() => {
         if(window.top !== window.self) setIsReview(true);
     }, []);
     
-    React.useEffect(() => {
+    useEffect(() => {
         var head = document.head;
         var link = document.createElement("link");
     
