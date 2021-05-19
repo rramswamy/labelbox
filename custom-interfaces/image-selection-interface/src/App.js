@@ -74,7 +74,7 @@ const renderImages = ({
 
 const App = () => {
  
-    const [asset, setAsset] = useState(null);
+    //const [asset, setAsset] = useState(null);
     const [rejectedImages, setRejectedImages] = React.useState([]);
     const [flaggedImages, setFlaggedImages] = React.useState([]);
     const [isReview, setIsReview] = React.useState(false);
