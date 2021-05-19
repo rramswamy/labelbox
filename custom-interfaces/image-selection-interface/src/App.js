@@ -6,7 +6,7 @@ import styled from "styled-components";
 import "./App.css";
 import Image from './components/Image';
 import JsonUtils from './utils/Json.utils';
-
+import { toast, ToastContainer } from 'react-toastify';
 import {Toolbar} from './components/Toolbar';
 
 //import asset from './data.json' //temp asset to run local
@@ -119,13 +119,13 @@ const App = () => {
             setAsset(emittedAsset);
         }
         };
-    },
-/*
+
+
         const subscription = window.Labelbox.currentAsset().subscribe(_handleNewAsset);
         return () => subscription.unsubscribe();
     }, [asset])
     
-*/
+
     function mountOutput(){
         const output = {
             label: rejectedImages,
@@ -199,6 +199,9 @@ const App = () => {
 
     return (
         <div>
+
+             <ToastContainer position={toast.POSITION.BOTTOM_RIGHT} />
+
             <Toolbar
                 parsedData={asset}
                 isReview={isReview}
