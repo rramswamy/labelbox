@@ -99,11 +99,11 @@ const App = () => {
     
       }, [darkMode]);
 
-    useEffect() => {
-/*
+    useEffect(() => {
+
         const _handleNewAsset = emittedAsset => {
         if (!emittedAsset) return;
-        */
+        
         const assetIsNew = !asset || emittedAsset.id !== asset.id;
         const assetHasMoreInfo = 
         asset
@@ -124,13 +124,12 @@ const App = () => {
         };
 
 
-/*
-        const subscription = window.Labelbox.currentAsset().subscribe(_handleNewAsset);
-        return () => subscription.unsubscribe();
-        
-    }, [asset]
+
+    const subscription = window.Labelbox.currentAsset().subscribe(_handleNewAsset);
+    return () => subscription.unsubscribe();
+  }, [asset])
    
-*/
+
     function mountOutput(){
         const output = {
             label: rejectedImages,
