@@ -47,7 +47,7 @@ export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSiz
             </Dialog>
             <div id="toolbarWrapper">
 
-                <Left style={{ padding-top:"50px" }}, disabled={!hasLeft} onClick={() => hasLeft ? onLeftClick() : null}  />
+                <Left variant="contained" disabled={!hasLeft} onClick={() => hasLeft ? onLeftClick() : null}  />
 
                     {
                         parsedData.referenceImage &&
