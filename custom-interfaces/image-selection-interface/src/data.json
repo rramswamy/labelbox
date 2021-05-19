@@ -1,0 +1,118 @@
+{
+  "instructions": "Which car is not a Model S?",
+  "referenceImage": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg",
+  "data": [
+    {
+      "externalId": "ab65d5e99w12",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsf9c9w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsfs99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsfdf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abwfadsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/2017-Tesla-Model-X-front-three-quarter-07.jpg"
+    },
+    {
+      "externalId": "abadewrsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadswrf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadswrf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadwcsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsvtwf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsfvr99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadswvtf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadwvsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsfvtr99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/2017-Tesla-Model-X-front-three-quarter-07.jpg"
+    },
+    {
+      "externalId": "abavrydsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsgvtf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsbyef99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abaebtdsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsfvt99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsfbr99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abavwrdsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadrtybsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadwevrsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/2017-Tesla-Model-X-front-three-quarter-07.jpg"
+    },
+    {
+      "externalId": "abadsferb99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadsetbwvf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abadtrvrtvsf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    },
+    {
+      "externalId": "abaderbysf99w13",
+      "imageUrl": "https://storage.googleapis.com/labelbox-example-datasets/tesla/104836109-p100d-review-5.1910x1000.jpeg"
+    }
+  ]
+}

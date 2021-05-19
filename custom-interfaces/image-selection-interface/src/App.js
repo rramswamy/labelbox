@@ -1,247 +1,226 @@
-import React, { useState, useEffect } from "react";
+import * as React from "react";
 import { LinearProgress } from "@material-ui/core";
 import styled from "styled-components";
-import Button from "@material-ui/core/Button";
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
-import { Toolbar } from "./components/Toolbar";
+import "./App.css";
 import Image from './components/Image';
 import JsonUtils from './utils/Json.utils';
 
-const SECTION_PADDING = '10px';
-const MAX_BUTTONS_WRAPPER_WIDTH = '240px';
+import {Toolbar} from './components/Toolbar';
 
-const ButtonsWrapper = styled.div`
-  float: right;
-
-  button + button {
-    margin-left: 10px;
-  }
-`;
-
-const TopWrapper = styled.div`
-  padding: ${SECTION_PADDING};
-  > * {
-    display: block;
-    vertical-align: top;
-  }
-
-  div.instructions {
-    max-width: calc(100% - ${MAX_BUTTONS_WRAPPER_WIDTH})
-  }
-
-  div.image-wrapper {
-    margin-top: 10px;
-  }
-`;
+import asset from './data.json' //temp asset to run local
 
 const ImagesWrapper = styled.div`
-  padding: 5px;
-  
-  border-top: ${props => props.hasReferenceImage ? '1px solid lightgray' : 'none'};
+    padding: 5px;
+    display: flex;
+    flex-wrap: wrap;
 
-  div.image-wrapper {
-    height: auto;
-    width: 300px;
-
-    margin: 5px;
-    display: inline-block;
-    
-  }
+    div.image-wrapper {
+        height: auto;
+        width: 100%;
+        margin: auto 5px;
+        display: inline-block;
+    }
 `;
 
-
-
+// Map through images, and create image components for each
 const renderImages = ({
-  images,
-  selectedImages,
-  toggle,
-  isReview,
+    images,
+    rejectedImages,
+    flaggedImages,
+    toggleRejected,
+    toggleFlagged,
+    isReview,
+    imgSize,
 }) => {
+    return images.map(imageData => {
+        // Make sure the image formatting is valid
+        if(!imageData || !imageData.externalId || !imageData.imageUrl) return (
+            <div>
+                Error: invalid image {JSON.stringify(imageData)} requires id and imageUrl
+            </div>
+        );
 
-  return images.map(imageData => {
-    if(!imageData || !imageData.externalId || !imageData.imageUrl) return (
-      <div>
-        Error: invalid image {JSON.stringify(imageData)} requires id and imageUrl
-      </div>
-    );
+        const rejected = rejectedImages.some(({ externalId }) => imageData.externalId === externalId);
+        const flagged = flaggedImages.some(({ externalId }) => imageData.externalId === externalId)
 
-    const selected = selectedImages.some(({ externalId }) => imageData.externalId === externalId);
+        function handleImageClick(e, imageData){
+            if(e.altKey === true){
+                toggleFlagged(imageData);
+            } else{
+                toggleRejected(imageData);
+            }
+        }
 
-    return (
-      <Image
-        pointer={!isReview}
-        key={imageData.externalId}
-        id={imageData.externalId}
-        alt={imageData.externalId}
-        src={imageData.imageUrl}
-        onClick={() => isReview ? null : toggle(imageData)}
-        selected={selected}
-      />
-    )
-  })
+        return (
+            <Image
+                pointer={!isReview}
+                key={imageData.externalId}
+                id={imageData.externalId}
+                alt={imageData.externalId}
+                src={imageData.imageUrl}
+                onClick={(e) => isReview ? null : handleImageClick(e, imageData)}
+                rejected={rejected}
+                flagged={flagged}
+                imgSize={imgSize}
+            />
+        )
+    })
 };
 
-const mountOutput = (selectedImages, parsedData) => {
-  const output = {
-    label: selectedImages,
-  }
-  
-  if(parsedData.externalId) output.externalId = parsedData.externalId;
-  if(parsedData.referenceImage) output.referenceImage = parsedData.referenceImage;
-  
-  return JsonUtils.ds(selectedImages);
-  
-}
-
 const App = () => {
-
-  const [asset, setAsset] = useState(null);
-  const [selectedImages, setSelectedImages] = useState([]);
-  const [isReview, setIsReview] = useState(false);
-
-  useEffect(() => {
-    if(window.top !== window.self) setIsReview(true);
-  }, []);
   
-  useEffect(() => {
-    const _handleNewAsset = emittedAsset => {
-      if (!emittedAsset) return;
-      
-      const assetIsNew = !asset || emittedAsset.id !== asset.id;
-      const assetHasMoreInfo = 
-      asset
-      && (
-        asset.previous !== emittedAsset.previous
-        || asset.next !== emittedAsset.next
-      );
-      
-      if (assetIsNew || assetHasMoreInfo) {
-        try {
-          let { label } = emittedAsset;
-          setSelectedImages(JsonUtils.dp(label));
-        } catch(err) {
-          setSelectedImages([]);
-        }
-        setAsset(emittedAsset);
-      }
-    };
+    //const [asset, setAsset] = useState(null);
+    const [rejectedImages, setRejectedImages] = React.useState([]);
+    const [flaggedImages, setFlaggedImages] = React.useState([]);
+    const [isReview, setIsReview] = React.useState(false);
+    const [imgSize, setImgSize] = React.useState("small");
+    const [darkMode, setDarkMode] = React.useState(false);
 
-    const subscription = window.Labelbox.currentAsset().subscribe(_handleNewAsset);
-    return () => subscription.unsubscribe();
-  }, [asset])
-
-
-  const toggle = imageData => {
-
-    let newSelectedImages = [...selectedImages];
-
-    // if image isn't selected
-    if(!selectedImages.some(({ externalId }) => externalId === imageData.externalId)) {
-      newSelectedImages.push(imageData);  
-    }
-    else {
-      const index = selectedImages.findIndex(({ externalId }) => externalId === imageData.externalId);
-      newSelectedImages.splice(index, 1);
-    }
+    React.useEffect(() => {
+        if(window.top !== window.self) setIsReview(true);
+    }, []);
     
-    setSelectedImages(newSelectedImages);
-  };
-  
-  
-  if (!asset) {
-    return <LinearProgress />;
-  }
-  
-  const parsedData = JSON.parse(asset.data);
-  if (!parsedData || !parsedData.instructions || !parsedData.data) {
-    return (
-      <div>
-        Error: Input data {asset.data} does not include instructions and data fields.
-      </div>
-    );
-  }
+    React.useEffect(() => {
+        var head = document.head;
+        var link = document.createElement("link");
+    
+        link.type = "text/css";
+        link.rel = "stylesheet";
+        link.href = darkMode ? "/css/appDark.css" : "/css/appLight.css";
+    
+        head.appendChild(link);
+    
+        return () => { head.removeChild(link); }
+    
+      }, [darkMode]);
+    /*
+    useEffect(() => {
 
-  
-
-  const isEditing = !!asset.createdAt;
-
-  return (
-    <>
-      <ToastContainer position={toast.POSITION.BOTTOM_RIGHT} />
-
-      <Toolbar
-        hasRight
-        hasLeft={!!asset.previous}
-        onLeftClick={() => window.Labelbox.setLabelAsCurrentAsset(asset.previous)}
-        onRightClick={() =>
-          asset.next
-            ? window.Labelbox.setLabelAsCurrentAsset(asset.next)
-            : window.Labelbox.fetchNextAssetToLabel()
-        }
-      />
-
-      <TopWrapper>
-        <div className='instructions'>
-          <div dangerouslySetInnerHTML={{ __html: parsedData.instructions }} />
-          {
-            parsedData.referenceImage &&
-            <Image
-              id='reference-image'
-              alt='reference image'
-              src={parsedData.referenceImage}
-            />
-          }
-        </div>
-
-        <ButtonsWrapper>
-
-          <Button
-            id="skip"
-            disabled={isReview}
-            variant="contained"
-            onClick={() => {
-              window.Labelbox.skip().then(() => {
-                toast('Skipped');
-                if (!asset.label) window.Labelbox.fetchNextAssetToLabel();
-              })
-            }}
-          >
-            Skip
-          </Button>
-
-          <Button
-            id="submit"
-            color="primary"
-            disabled={isReview}
-            variant="contained"
-            onClick={() => 
-              window.Labelbox.setLabelForAsset(mountOutput(selectedImages, parsedData))
-              .then(() => {
-                if (!asset.label) window.Labelbox.fetchNextAssetToLabel();
-                toast(isEditing ? 'Saved' : 'Submitted');
-              })
-            }
-          >
-            {isEditing ? 'Save' : 'Submit'}
-          </Button>
-
-        </ButtonsWrapper>
+        const _handleNewAsset = emittedAsset => {
+        if (!emittedAsset) return;
         
-      </TopWrapper>
+        const assetIsNew = !asset || emittedAsset.id !== asset.id;
+        const assetHasMoreInfo = 
+        asset
+        && (
+            asset.previous !== emittedAsset.previous
+            || asset.next !== emittedAsset.next
+        );
+        
+        if (assetIsNew || assetHasMoreInfo) {
+            try {
+            let { label } = emittedAsset;
+            setRejectedImages(JsonUtils.dp(label));
+            } catch(err) {
+            setRejectedImages([]);
+            }
+            setAsset(emittedAsset);
+        }
+        };
 
-      <ImagesWrapper hasReferenceImage={!!parsedData.referenceImage}>
-        {renderImages({
-          toggle,
-          selectedImages,
-          images: parsedData.data,
-          isReview,
-        })}
-      </ImagesWrapper>
+        const subscription = window.Labelbox.currentAsset().subscribe(_handleNewAsset);
+        return () => subscription.unsubscribe();
+    }, [asset])
+    */
 
-    </>
-  );
+    function mountOutput(){
+        const output = {
+            label: rejectedImages,
+        }
+    
+        if(parsedData.externalId) output.externalId = parsedData.externalId;
+        if(parsedData.referenceImage) output.referenceImage = parsedData.referenceImage;
+    
+        return JsonUtils.ds(rejectedImages);
+    }
+
+
+    function toggleRejected(imageData){
+        let newRejectedImages = [...rejectedImages];
+        let newFlaggedImages = [...flaggedImages];
+
+        if(!rejectedImages.some(({ externalId }) => externalId === imageData.externalId)) {
+            newRejectedImages.push(imageData);  
+        }
+        else {
+            const index = rejectedImages.findIndex(({ externalId }) => externalId === imageData.externalId);
+            newRejectedImages.splice(index, 1);
+        }
+
+        // If image is already flagged, clear the flag
+        if(flaggedImages.some(({ externalId }) => externalId === imageData.externalId)) {
+            const index = flaggedImages.findIndex(({ externalId }) => externalId === imageData.externalId);
+            newFlaggedImages.splice(index, 1);
+            setFlaggedImages(newFlaggedImages);
+        }
+        
+        setRejectedImages(newRejectedImages);
+    }
+
+    function toggleFlagged(imageData){
+        let newFlaggedImages = [...flaggedImages];
+        let newRejectedImages = [...rejectedImages];
+
+        if(!flaggedImages.some(({ externalId }) => externalId === imageData.externalId)) {
+            newFlaggedImages.push(imageData);  
+        }
+        else {
+            const index = flaggedImages.findIndex(({ externalId }) => externalId === imageData.externalId);
+            newFlaggedImages.splice(index, 1);
+        }
+
+        // If image is already rejected, clear the selection
+        if(rejectedImages.some(({ externalId }) => externalId === imageData.externalId)) {
+            const index = rejectedImages.findIndex(({ externalId }) => externalId === imageData.externalId);
+            newRejectedImages.splice(index, 1);
+            setRejectedImages(newRejectedImages);
+        }
+
+        setFlaggedImages(newFlaggedImages);
+    }
+  
+    if (!asset) {
+        return <LinearProgress />;
+    }
+ 
+    const parsedData = asset;
+    if (!parsedData || !parsedData.instructions || !parsedData.data) {
+        return (
+        <div>
+            Error: Input data {asset.data} does not include instructions and data fields.
+        </div>
+        );
+    }
+
+    const isEditing = !!asset.createdAt;
+
+    return (
+        <div>
+            <Toolbar
+                parsedData={asset}
+                isReview={isReview}
+                isEditing={isEditing}
+                mountOutput={mountOutput}
+                setImgSize={setImgSize}
+                darkMode={darkMode}
+                toggleDark={() => setDarkMode(!darkMode)}
+                flaggedCount={flaggedImages.length}
+                rejectedCount={rejectedImages.length}
+            />
+            <ImagesWrapper hasReferenceImage={!!parsedData.referenceImage}>
+                {renderImages({
+                toggleRejected,
+                toggleFlagged,
+                rejectedImages,
+                flaggedImages,
+                images: parsedData.data,
+                isReview,
+                imgSize: imgSize,
+                })}
+            </ImagesWrapper>
+        </div>
+    );
 }
 
 export default App;

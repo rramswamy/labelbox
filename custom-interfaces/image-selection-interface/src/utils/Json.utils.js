@@ -1,4 +1,4 @@
-export default class {
+export default class doubleParse {
 
   /**
    * dp stands for double parse - takes a string and returns object
