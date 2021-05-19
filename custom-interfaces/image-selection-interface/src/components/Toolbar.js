@@ -48,7 +48,7 @@ export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSiz
             <div id="toolbarWrapper">
 
                 <Left variant="contained" disabled={!hasLeft} onClick={() => hasLeft ? onLeftClick() : null}  />
-
+                 <Right disabled={!hasRight} onClick={() => hasRight ? onRightClick() : null} />
                     {
                         parsedData.referenceImage &&
                         <Image
@@ -120,7 +120,7 @@ export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSiz
                     </Button>
                 </div>
 
-                <Right disabled={!hasRight} onClick={() => hasRight ? onRightClick() : null} />
+               
             
             </div>
         </React.Fragment>
