@@ -8,7 +8,7 @@ import JsonUtils from './utils/Json.utils';
 
 import {Toolbar} from './components/Toolbar';
 
-import asset from './data.json' //temp asset to run local
+//import asset from './data.json' //temp asset to run local
 
 const ImagesWrapper = styled.div`
     padding: 5px;
@@ -94,7 +94,7 @@ const App = () => {
         return () => { head.removeChild(link); }
     
       }, [darkMode]);
-    /*
+    
     useEffect(() => {
 
         const _handleNewAsset = emittedAsset => {
@@ -122,7 +122,7 @@ const App = () => {
         const subscription = window.Labelbox.currentAsset().subscribe(_handleNewAsset);
         return () => subscription.unsubscribe();
     }, [asset])
-    */
+    
 
     function mountOutput(){
         const output = {
