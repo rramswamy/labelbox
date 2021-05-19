@@ -1,5 +1,5 @@
 import * as React from "react";
-//import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { LinearProgress } from "@material-ui/core";
 import styled from "styled-components";
 
@@ -12,7 +12,7 @@ import {Toolbar} from './components/Toolbar';
 import { toast, ToastContainer } from 'react-toastify';
 
 
-import asset from './data.json' //temp asset to run local
+//import asset from './data.json' //temp asset to run local
 
 const ImagesWrapper = styled.div`
     padding: 5px;
@@ -74,7 +74,7 @@ const renderImages = ({
 
 const App = () => {
  
-    //const [asset, setAsset] = useState(null);
+    const [asset, setAsset] = useState(null);
     const [rejectedImages, setRejectedImages] = React.useState([]);
     const [flaggedImages, setFlaggedImages] = React.useState([]);
     const [isReview, setIsReview] = React.useState(false);
@@ -98,7 +98,7 @@ const App = () => {
         return () => { head.removeChild(link); }
     
       }, [darkMode]);
-/*
+
     useEffect(() => {
 
         const _handleNewAsset = emittedAsset => {
@@ -128,7 +128,7 @@ const App = () => {
         return () => subscription.unsubscribe();
         
     }, [asset])
-   */
+   
 
     function mountOutput(){
         const output = {
