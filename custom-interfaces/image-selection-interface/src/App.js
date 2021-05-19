@@ -6,6 +6,7 @@ import styled from "styled-components";
 import "./App.css";
 import Image from './components/Image';
 import JsonUtils from './utils/Json.utils';
+import Labelbox from './utils/labeling-api.js'
 
 import {Toolbar} from './components/Toolbar';
 
