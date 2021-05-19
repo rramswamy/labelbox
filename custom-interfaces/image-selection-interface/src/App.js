@@ -10,8 +10,6 @@ import JsonUtils from './utils/Json.utils';
 import {Toolbar} from './components/Toolbar';
 
 import { toast, ToastContainer } from 'react-toastify';
-import styled from "styled-components";
-import Button from "@material-ui/core/Button";
 
 
 //import asset from './data.json' //temp asset to run local
