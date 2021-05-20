@@ -116,13 +116,13 @@ const App = () => {
             }
             setAsset(emittedAsset);
         }
-        };,
+        };
     
 /*
     const subscription = window.Labelbox.currentAsset().subscribe(_handleNewAsset);
     return () => subscription.unsubscribe();
   }, [asset])*/
-  return }
+  return },
   
    
 
