@@ -191,7 +191,7 @@ const App = () => {
     if (!parsedData || !parsedData.instructions || !parsedData.data) {
         return (
         <div>
-            Error: Input data {asset.data} does not include instructions and data fields.
+            Error: Input data {asset.instructions} does not include instructions and data fields.
         </div>
         );
     }
