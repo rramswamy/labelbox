@@ -142,9 +142,11 @@ const App = () => {
     function mountOutput(){
         const selectedImages = []
         for (let i = 0; i <= rejectedImages.length; i++) {
+            console.log(rejectedImages[i])
             const rejectedImage = rejectedImages[i]
             rejectedImage.status = "rejected"
             selectedImages.push(rejectedImage)
+
         }
         for (let i = 0; i <= flaggedImages.length; i++) {
             const flaggedImage = flaggedImages[i]
