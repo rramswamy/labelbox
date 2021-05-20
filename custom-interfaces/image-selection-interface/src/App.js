@@ -139,17 +139,21 @@ const App = () => {
    
 
     function mountOutput(){
-        for (let i = 0; i <= rejectedImages.length; i++) {
-            rejectedImages[i].status = "rejected"
+
+        let rejImageArr = rejectedImages;
+        let flagImgArr = flaggedImages;
+
+        for (let i = 0; i <= rejImageArr.length; i++) {
+            rejImageArr[i].status = "rejected"
 
         }
-        for (let i = 0; i <= flaggedImages.length; i++) {
-            flaggedImages[i].status = "flagged"
+        for (let i = 0; i <= flagImgArr.length; i++) {
+            flagImgArr[i].status = "flagged"
         }
         console.log(rejectedImages)
 
-        let selectedImages = JsonUtils.ds(rejectedImages)
-        selectedImages += JsonUtils.ds(flaggedImages)
+        let selectedImages = JsonUtils.ds(rejImageArr)
+        selectedImages += JsonUtils.ds(flagImgArr)
     
         return selectedImages;
     }
