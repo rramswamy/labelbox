@@ -1,7 +1,6 @@
 import * as React from "react";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import styled from "styled-components";
+
 
 import { 
     Button,
@@ -17,17 +16,8 @@ import {
 
 import Image from './Image';
 
-const Left = styled(ChevronLeftIcon)`
-  cursor: pointer;
-  ${props => (props.disabled ? `opacity: 0.2` : "")}
-`;
 
-const Right = styled(ChevronRightIcon)`
-  cursor: pointer;
-  ${props => (props.disabled ? `opacity: 0.2` : "")}
-`;
-
-export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSize, darkMode, toggleDark, flaggedCount, rejectedCount, hasLeft, hasRight, onLeftClick, onRightClick}) {
+export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSize, darkMode, toggleDark, flaggedCount, rejectedCount}) {
     const [layoutMenuOpen, setLayoutMenuOpen] = React.useState(false);
     const [referenceOpen, setReferenceOpen] = React.useState(false);
 
@@ -47,8 +37,6 @@ export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSiz
             </Dialog>
             <div id="toolbarWrapper">
 
-                <Left disabled={!hasLeft} onClick={() => hasLeft ? onLeftClick() : null}  />
-                 <Right disabled={!hasRight} onClick={() => hasRight ? onRightClick() : null} />
                     {
                         parsedData.referenceImage &&
                         <Image
