@@ -118,6 +118,16 @@ const App = () => {
             }
             setAsset(emittedAsset);
         }
+
+        if (assetIsNew || assetHasMoreInfo) {
+            try {
+            let { label } = emittedAsset;
+            setFlaggedImages(JsonUtils.dp(label));
+            } catch(err) {
+            setFlaggedImages([]);
+            }
+            setAsset(emittedAsset);
+        }
         };
     
 
@@ -211,13 +221,7 @@ const App = () => {
                 toggleDark={() => setDarkMode(!darkMode)}
                 flaggedCount={flaggedImages.length}
                 rejectedCount={rejectedImages.length}
-                hasRight
-                hasLeft={!!asset.previous}
-                onLeftClick={() => window.Labelbox.setLabelAsCurrentAsset(asset.previous)}
-                onRightClick={() =>
-                  asset.next
-                    ? window.Labelbox.setLabelAsCurrentAsset(asset.next)
-                    : window.Labelbox.fetchNextAssetToLabel()
+   
         }
             />
             <ImagesWrapper hasReferenceImage={!!parsedData.referenceImage}>
