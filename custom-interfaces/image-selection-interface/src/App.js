@@ -5,9 +5,11 @@ import styled from "styled-components";
 import "./App.css";
 import Image from './components/Image';
 import JsonUtils from './utils/Json.utils';
+import Labelbox from 'https://api.labelbox.com/static/labeling-api.js"'
 
 import {Toolbar} from './components/Toolbar';
 //import asset from './data.json' //temp asset to run local
+
 
 const ImagesWrapper = styled.div`
     padding: 5px;
@@ -119,7 +121,7 @@ const App = () => {
         };
     
 
-    const subscription = window.Labelbox.currentAsset().subscribe(_handleNewAsset);
+    const subscription = Labelbox.currentAsset().subscribe(_handleNewAsset);
     return () => subscription.unsubscribe();
   }, [asset])
   
