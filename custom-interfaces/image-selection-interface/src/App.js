@@ -145,12 +145,12 @@ const App = () => {
 
         for (let i = 0; i <= rejectedImages.length; i++) {
             const rejectedImage = rejectedImages[i]
-            imageObj.status = "rejected"
+            let imageObj.status = "rejected"
             newRejectedImages.push(rejectedImage)
             }
         for (let i = 0; i <= flaggedImages.length; i++) {
             const flaggedImageObj = flaggedImages[i]
-            imageObj.status = "flagged"
+            let imageObj.status = "flagged"
             newFlaggedImages.push(flaggedImage)
             }
         console.log(rejectedImages)
