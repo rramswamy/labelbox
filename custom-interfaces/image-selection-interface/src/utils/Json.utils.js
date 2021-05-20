@@ -33,6 +33,6 @@ export default class doubleParse {
       throw new Error(err);
     }
 
-    return JSON.stringify(JSON.stringify(obj));
+    return JSON.stringify(obj);
   }
 }
