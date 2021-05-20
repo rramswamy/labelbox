@@ -138,25 +138,27 @@ const App = () => {
   
    
 
+
     function mountOutput(){
         const newRejectedImages = []
         const newFlaggedImages = []
-        
-            for (let i = 0; i <= rejectedImages.length; i++) {
-                const imageObj = rejectedImages[i]
-                imageObj.status = "rejected"
-                newRejectedImages.push(imageObj)
-            }
 
-            for (let i = 0; i <= flaggedImages.length; i++) {
-                flaggedImages[i].status = "flagged"
+        for (let i = 0; i <= rejectedImages.length; i++) {
+            const rejectedImage = rejectedImages[i]
+            imageObj.status = "rejected"
+            newRejectedImages.push(rejectedImage)
             }
-
-            console.log(rejectedImages)
-            let selectedImages = JsonUtils.ds(rejectedImages)
-            selectedImages += JsonUtils.ds(flaggedImages)
+        for (let i = 0; i <= flaggedImages.length; i++) {
+            const flaggedImageObj = flaggedImages[i]
+            imageObj.status = "flagged"
+            newFlaggedImages.push(flaggedImage)
+            }
+        console.log(rejectedImages)
+        let selectedImages = JsonUtils.ds(rejectedImages)
+        selectedImages += JsonUtils.ds(flaggedImages)
+            
             return selectedImages;
-        }
+    }
 
 
     function toggleRejected(imageData){
