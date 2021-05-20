@@ -149,6 +149,17 @@ const App = () => {
         return JsonUtils.ds(rejectedImages);
     }
 
+    function mountOutput2(){
+        const output = {
+            label: flaggedImages,
+        }
+    
+        if(parsedData.externalId) output.externalId = parsedData.externalId;
+        if(parsedData.referenceImage) output.referenceImage = parsedData.referenceImage;
+    
+        return JsonUtils.ds(flaggedImages);
+    }
+
 
     function toggleRejected(imageData){
         let newRejectedImages = [...rejectedImages];
@@ -217,6 +228,7 @@ const App = () => {
                 isReview={isReview}
                 isEditing={isEditing}
                 mountOutput={mountOutput}
+                mountOutput2={mountOutput2}
                 setImgSize={setImgSize}
                 darkMode={darkMode}
                 toggleDark={() => setDarkMode(!darkMode)}
