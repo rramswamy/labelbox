@@ -15,7 +15,7 @@ import {
 import Image from './Image';
 
 
-export function Toolbar({parsedData, isReview, isEditing, mountOutput, mountOutput2, setImgSize, darkMode, toggleDark, flaggedCount, rejectedCount}) {
+export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSize, darkMode, toggleDark, flaggedCount, rejectedCount}) {
     const [layoutMenuOpen, setLayoutMenuOpen] = React.useState(false);
     const [referenceOpen, setReferenceOpen] = React.useState(false);
 
@@ -96,8 +96,7 @@ export function Toolbar({parsedData, isReview, isEditing, mountOutput, mountOutp
                         variant="contained"
                         disabled={isReview}
                         onClick={() => 
-                            window.Labelbox.setLabelForAsset(mountOutput()),
-                            window.Labelbox.setLabelForAsset(mountOutput2())
+                            window.Labelbox.setLabelForAsset(mountOutput())
                             .then(() => {
                                 if (!parsedData.label) window.Labelbox.fetchNextAssetToLabel();
                             })

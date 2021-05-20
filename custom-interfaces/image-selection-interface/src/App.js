@@ -139,25 +139,10 @@ const App = () => {
    
 
     function mountOutput(){
-        const output = {
-            label: rejectedImages,
-        }
+    let selectedImages = JsonUtils.ds(rejectedImages)
+    selectedImages += JsonUtils.ds(flaggedImages)
     
-        if(parsedData.externalId) output.externalId = parsedData.externalId;
-        if(parsedData.referenceImage) output.referenceImage = parsedData.referenceImage;
-    
-        return JsonUtils.ds(rejectedImages);
-    }
-
-    function mountOutput2(){
-        const output = {
-            label: flaggedImages,
-        }
-    
-        if(parsedData.externalId) output.externalId = parsedData.externalId;
-        if(parsedData.referenceImage) output.referenceImage = parsedData.referenceImage;
-    
-        return JsonUtils.ds(flaggedImages);
+        return selectedImages;
     }
 
 
@@ -228,7 +213,6 @@ const App = () => {
                 isReview={isReview}
                 isEditing={isEditing}
                 mountOutput={mountOutput}
-                mountOutput2={mountOutput2}
                 setImgSize={setImgSize}
                 darkMode={darkMode}
                 toggleDark={() => setDarkMode(!darkMode)}
