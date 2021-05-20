@@ -143,13 +143,14 @@ const App = () => {
         const selectedImages = []
         for (let i = 0; i <= rejectedImages.length; i++) {
             console.log(rejectedImages[i])
-            const rejectedImage = rejectedImages[i]
+            const rejectedImage = ...rejectedImages[i]
             rejectedImage.status = "rejected"
+            console.log(rejectedImage)
             selectedImages.push(rejectedImage)
 
         }
         for (let i = 0; i <= flaggedImages.length; i++) {
-            const flaggedImage = flaggedImages[i]
+            const flaggedImage = ...flaggedImages[i]
             flaggedImage.status = "flagged"
             selectedImages.push(flaggedImage)
         }
