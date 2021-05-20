@@ -141,12 +141,14 @@ const App = () => {
     function mountOutput(){
         for (let i = 0; i <= rejectedImages.length; i++) {
             rejectedImages[i].status = "rejected"
+            this.setState({ rejectedImages[i]: rejectedImages[i] });
         }
         for (let i = 0; i <= flaggedImages.length; i++) {
             flaggedImages[i].status = "flagged"
+            this.setState({ flaggedImages[i]: flaggedImages[i] });
         }
         console.log(rejectedImages)
-        
+
         let selectedImages = JsonUtils.ds(rejectedImages)
         selectedImages += JsonUtils.ds(flaggedImages)
     
