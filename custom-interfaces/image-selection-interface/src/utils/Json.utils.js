@@ -28,7 +28,7 @@ export default class doubleParse {
   static ds(obj) {
     try {
       JSON.stringify(obj);
-      JSON.stringify(JSON.stringify(obj));
+      //JSON.stringify(JSON.stringify(obj));
     } catch(err) {
       throw new Error(err);
     }
