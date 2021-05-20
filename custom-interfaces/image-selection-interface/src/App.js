@@ -187,11 +187,11 @@ const App = () => {
         return <LinearProgress />;
     }
  
-    const parsedData = asset;
+    const parsedData = JSON.parse(asset.data);
     if (!parsedData || !parsedData.instructions || !parsedData.data) {
         return (
         <div>
-            Error: Input data {asset.instructions} does not include instructions and data fields.
+            Error: Input data {asset.data} does not include instructions and data fields.
         </div>
         );
     }
