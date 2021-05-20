@@ -128,6 +128,7 @@ const App = () => {
             }
             setAsset(emittedAsset);
         }
+
         };
     
 
@@ -222,7 +223,7 @@ const App = () => {
                 flaggedCount={flaggedImages.length}
                 rejectedCount={rejectedImages.length}
    
-        }
+        
             />
             <ImagesWrapper hasReferenceImage={!!parsedData.referenceImage}>
                 {renderImages({
