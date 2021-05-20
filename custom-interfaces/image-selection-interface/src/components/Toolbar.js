@@ -97,7 +97,6 @@ export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSiz
                         disabled={isReview}
                         onClick={() => 
                             window.Labelbox.setLabelForAsset(mountOutput())
-                            .then((window.Labelbox.setLabelForAsset(mountOutput2()))
                             .then(() => {
                                 if (!parsedData.label) window.Labelbox.fetchNextAssetToLabel();
                             })
