@@ -45,6 +45,15 @@ const renderImages = ({
         const rejected = rejectedImages.some(({ externalId }) => imageData.externalId === externalId);
         const flagged = flaggedImages.some(({ externalId }) => imageData.externalId === externalId)
 
+        if(imageData.status){
+            if(imageData.status === "flagged"){
+                toggleFlagged(imageData)
+            }
+            else if(imageData.status === "rejected"){
+                toggleRejected(imageData)
+            }
+        }
+
         function handleImageClick(e, imageData){
             if(e.altKey === true){
                 toggleFlagged(imageData);
