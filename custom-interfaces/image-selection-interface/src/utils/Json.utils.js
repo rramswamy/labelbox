@@ -10,12 +10,11 @@ export default class doubleParse {
   static dp(string) {
     try {
       JSON.parse(string);
-      JSON.parse(JSON.parse(string));
     } catch(err) {
       throw new Error(err);
     }
 
-    return JSON.parse(JSON.parse(string));
+    return JSON.parse(string);
   }
 
   /**
