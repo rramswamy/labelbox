@@ -119,22 +119,27 @@ const App = () => {
         );
         
         if (assetIsNew || assetHasMoreInfo) {
-            let { label } = emittedAsset;
-            const allLabels = JsonUtils.dp(label);
-            const flaggedLabels = [];
-            const rejectedLabels = [];
-            allLabels.forEach((label) => {
-                if(label.status === "flagged"){
-                    flaggedLabels.push(label);
-                }
-                else if(label.status === "rejected"){
-                    rejectedLabels.push(label);
-                }
-            })
+            try {
+                let { label } = emittedAsset;
+                const flaggedLabels = [];
+                const rejectedLabels = [];
+                const allLabels = JsonUtils.dp(label);
+                allLabels.forEach((label) => {
+                    if(label.status === "flagged"){
+                        flaggedLabels.push(label);
+                    }
+                    else if(label.status === "rejected"){
+                        rejectedLabels.push(label);
+                    }
+                })
+                setFlaggedImages(flaggedLabels);
+                setRejectedImages(rejectedLabels);
+            } 
+            catch(err){
+                setFlaggedImages([]);
+                setRejectedImages([]);
+            }
             setAsset(emittedAsset);
-            setFlaggedImages(flaggedLabels);
-            setRejectedImages(rejectedLabels);
-       
         }
 
         };
