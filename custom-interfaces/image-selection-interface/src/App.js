@@ -119,25 +119,22 @@ const App = () => {
         );
         
         if (assetIsNew || assetHasMoreInfo) {
-            try {
             let { label } = emittedAsset;
-            setRejectedImages(JsonUtils.dp(label));
-            } catch(err) {
-            setRejectedImages([]);
-            }
+            const allLabels = JsonUtils.dp(label);
+            const flaggedLabels = [];
+            const rejectedLabels = [];
+            allLabels.map((label) => {
+                if(label.status === "flagged"){
+                    flaggedLabels.push(label);
+                }
+                else if(label.status === "rejected"){
+                    rejectedLabels.push(label);
+                }
+            })
             setAsset(emittedAsset);
+            setFlaggedImages(flaggedLabels);
+            setRejectedImages(rejectedLabels);
         }
-
-        if (assetIsNew || assetHasMoreInfo) {
-            try {
-            let { label } = emittedAsset;
-            setFlaggedImages(JsonUtils.dp(label));
-            } catch(err) {
-            setFlaggedImages([]);
-            }
-            setAsset(emittedAsset);
-        }
-
         };
     
 
@@ -145,8 +142,6 @@ const App = () => {
     return () => subscription.unsubscribe();
   }, [asset])
   
-   
-
 
     function mountOutput(){
         const selectedImages = []
@@ -216,15 +211,6 @@ const App = () => {
     if (!asset) {
         return <LinearProgress />;
     }
- 
-    const parsedData = JSON.parse(asset.data);
-    if (!parsedData || !parsedData.instructions || !parsedData.data) {
-        return (
-        <div>
-            Error: Input data {asset.data} does not include instructions and data fields.
-        </div>
-        );
-    }
 
     const isEditing = !!asset.createdAt;
 
@@ -232,7 +218,7 @@ const App = () => {
         <div>
 
             <Toolbar
-                parsedData={parsedData}
+                parsedData={asset}
                 isReview={isReview}
                 isEditing={isEditing}
                 mountOutput={mountOutput}
@@ -244,13 +230,13 @@ const App = () => {
    
         
             />
-            <ImagesWrapper hasReferenceImage={!!parsedData.referenceImage}>
+            <ImagesWrapper hasReferenceImage={!!asset.referenceImage}>
                 {renderImages({
                 toggleRejected,
                 toggleFlagged,
                 rejectedImages,
                 flaggedImages,
-                images: parsedData.data,
+                images: asset.data,
                 isReview,
                 imgSize: imgSize,
                 })}
