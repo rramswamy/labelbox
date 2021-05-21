@@ -134,7 +134,9 @@ const App = () => {
             setAsset(emittedAsset);
             setFlaggedImages(flaggedLabels);
             setRejectedImages(rejectedLabels);
+        return null
         }
+
         };
     
 
