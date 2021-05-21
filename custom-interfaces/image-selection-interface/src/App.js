@@ -232,7 +232,7 @@ const App = () => {
         <div>
 
             <Toolbar
-                parsedData={asset}
+                parsedData={parsedData}
                 isReview={isReview}
                 isEditing={isEditing}
                 mountOutput={mountOutput}
