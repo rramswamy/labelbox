@@ -123,7 +123,7 @@ const App = () => {
             const allLabels = JsonUtils.dp(label);
             const flaggedLabels = [];
             const rejectedLabels = [];
-            allLabels.map((label) => {
+            allLabels.forEach((label) => {
                 if(label.status === "flagged"){
                     flaggedLabels.push(label);
                 }
@@ -134,7 +134,7 @@ const App = () => {
             setAsset(emittedAsset);
             setFlaggedImages(flaggedLabels);
             setRejectedImages(rejectedLabels);
-        return null
+       
         }
 
         };
