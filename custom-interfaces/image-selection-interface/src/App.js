@@ -219,13 +219,22 @@ const App = () => {
         return <LinearProgress />;
     }
 
+    const parsedData = JSON.parse(asset.data);
+    if (!parsedData || !parsedData.instructions || !parsedData.data) {
+        return (
+        <div>
+            Error: Input data {asset.data} does not include instructions and data fields.
+        </div>
+        );
+    }
+
     const isEditing = !!asset.createdAt;
 
     return (
         <div>
 
             <Toolbar
-                parsedData={asset}
+                parsedData={parsedData}
                 isReview={isReview}
                 isEditing={isEditing}
                 mountOutput={mountOutput}
@@ -237,13 +246,13 @@ const App = () => {
    
         
             />
-            <ImagesWrapper hasReferenceImage={!!asset.referenceImage}>
+            <ImagesWrapper hasReferenceImage={!!parsedData.referenceImage}>
                 {renderImages({
                 toggleRejected,
                 toggleFlagged,
                 rejectedImages,
                 flaggedImages,
-                images: asset.data,
+                images: parsedData.data,
                 isReview,
                 imgSize: imgSize,
                 })}
