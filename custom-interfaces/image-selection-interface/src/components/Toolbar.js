@@ -37,10 +37,10 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
             <div id="toolbarWrapper">
 
                 <div id="home">
-                    <Home 
+                    <p 
                     style={{color: "#9b9b9b", cursor: "pointer"}}
                     onClick={() => goHome()}
-                    >Home</Home>
+                    >Home</p>
                 </div>
 
                     {
