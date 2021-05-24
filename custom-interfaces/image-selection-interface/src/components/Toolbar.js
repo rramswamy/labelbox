@@ -36,13 +36,6 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
             </Dialog>
             <div id="toolbarWrapper">
 
-                <div id="home">
-                    <p 
-                    style={{color: "#9b9b9b", cursor: "pointer"}}
-                    onClick={() => goHome()}
-                    >Home</p>
-                </div>
-
                     {
                         parsedData.referenceImage &&
                         <Image
@@ -61,6 +54,12 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
                     </center></div>
                 </div>
                 <div id="toolbarSettingsWrapper">
+                  <div id="home">
+                    <p 
+                    style={{color: "#9b9b9b", cursor: "pointer"}}
+                    onClick={() => goHome()}
+                    >Home</p>
+                    </div>
                 <IconButton 
                     onClick={() => toggleDark()}
                     style={darkMode ? {color: "#edeffb"} : {}}
