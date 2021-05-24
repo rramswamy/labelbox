@@ -14,14 +14,7 @@ import {
 
 import Image from './Image';
 
-  function goHome() {
-    let state = {
-    projectId: new URL(window.location.href).searchParams.get("project"),
-    currentAsset: undefined
-  };
-    window.location.href =
-      "https://app.labelbox.com/projects/" + state.projectId;
-  }
+
 
 export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, setImgSize, darkMode, toggleDark, flaggedCount, rejectedCount}) {
     const [layoutMenuOpen, setLayoutMenuOpen] = React.useState(false);
@@ -43,11 +36,11 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
             </Dialog>
             <div id="toolbarWrapper">
 
-                      <div
-                        //class="material-icons"
-                        style={{color: "#9b9b9", cursor: "pointer"}}
-                        onclick = {() => goHome()} 
-                         >Home</div>
+                <div id="home">
+                    <Home 
+                    style={{color: "#9b9b9b", cursor: "pointer"}}
+                    onClick={() => goHome()}
+                    >Home</Home>
 
                     {
                         parsedData.referenceImage &&
