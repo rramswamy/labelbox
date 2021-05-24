@@ -54,18 +54,21 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
                     </center></div>
                 </div>
                 <div id="toolbarSettingsWrapper">
-                  <div id="layoutMenu">
+
+                <IconButton id="layoutMenu">
                     <p 
                     style={{color: "#edeffb", cursor: "pointer"}}
                     onClick={() => goHome()}
                     >Home</p>
-                    </div>
+                </IconButton>
+
                 <IconButton 
                     onClick={() => toggleDark()}
                     style={darkMode ? {color: "#edeffb"} : {}}
                 >
                     <Brightness6 variant="contained"/>
                 </IconButton>
+
                 <IconButton 
                     id="layoutMenu" 
                     onClick={() => setLayoutMenuOpen(true)}
@@ -73,6 +76,7 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
                 >
                     <Dashboard/>
                 </IconButton>
+
                 <Menu
                     open={layoutMenuOpen}
                     onClose={() => setLayoutMenuOpen(false)}
@@ -82,6 +86,7 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
                     <MenuItem onClick={() => handleMenuClick("medium")}>Medium</MenuItem>
                     <MenuItem onClick={() => handleMenuClick("large")}>Large</MenuItem>
                 </Menu>
+
                 </div>
                 <div id="toolbarButtonWrapper">
                     <Button
