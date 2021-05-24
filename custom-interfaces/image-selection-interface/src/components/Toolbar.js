@@ -57,7 +57,7 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
 
                 <IconButton id="layoutMenu">
                     <p 
-                    style={{color: "#edeffb", cursor: "pointer"}}
+                    style={{color: "#9b9b9b", cursor: "pointer", fontSize: "12px"}}
                     onClick={() => goHome()}
                     >Home</p>
                 </IconButton>
