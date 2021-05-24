@@ -86,6 +86,7 @@ const App = () => {
     const [isReview, setIsReview] = useState(false);
     const [imgSize, setImgSize] = useState("small");
     const [darkMode, setDarkMode] = useState(false);
+    const [goHome] = useState(false)
 
     useEffect(() => {
         if(window.top !== window.self) setIsReview(true);
