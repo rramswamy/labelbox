@@ -45,7 +45,7 @@ export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSiz
 
                       <div
                         //class="material-icons"
-                        style={{"color: #9b9b9b; cursor: pointer;"}}
+                        style={{"color: #9b9b9, cursor: pointer"}}
                         onclick = {() => goHome()} 
                          >Home</div>
 
