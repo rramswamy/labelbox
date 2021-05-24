@@ -54,9 +54,9 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
                     </center></div>
                 </div>
                 <div id="toolbarSettingsWrapper">
-                  <div id="home">
+                  <div id="layoutMenu">
                     <p 
-                    style={{color: "#9b9b9b", cursor: "pointer"}}
+                    style={{color: "#edeffb", cursor: "pointer"}}
                     onClick={() => goHome()}
                     >Home</p>
                     </div>
