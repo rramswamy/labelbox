@@ -41,6 +41,7 @@ export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, s
                     style={{color: "#9b9b9b", cursor: "pointer"}}
                     onClick={() => goHome()}
                     >Home</Home>
+                </div>
 
                     {
                         parsedData.referenceImage &&
