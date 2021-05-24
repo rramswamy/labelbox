@@ -23,7 +23,7 @@ import Image from './Image';
       "https://app.labelbox.com/projects/" + state.projectId;
   }
 
-export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSize, darkMode, toggleDark, flaggedCount, rejectedCount}) {
+export function Toolbar({goHome, parsedData, isReview, isEditing, mountOutput, setImgSize, darkMode, toggleDark, flaggedCount, rejectedCount}) {
     const [layoutMenuOpen, setLayoutMenuOpen] = React.useState(false);
     const [referenceOpen, setReferenceOpen] = React.useState(false);
 
