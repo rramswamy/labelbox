@@ -150,7 +150,15 @@ const App = () => {
     return () => subscription.unsubscribe();
   }, [asset])
   
-
+    function goHome() {
+        let state = {
+        projectId: new URL(window.location.href).searchParams.get("project"),
+        currentAsset: undefined
+        };
+        window.location.href =
+        "https://app.labelbox.com/projects/" + state.projectId;
+    }
+    
     function mountOutput(){
         const selectedImages = []
         if(rejectedImages.length > 0){
