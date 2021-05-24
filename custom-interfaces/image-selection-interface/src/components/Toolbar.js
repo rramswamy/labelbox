@@ -15,6 +15,10 @@ import {
 import Image from './Image';
 
   function goHome() {
+    let state = {
+    projectId: new URL(window.location.href).searchParams.get("project"),
+    currentAsset: undefined
+  };
     window.location.href =
       "https://app.labelbox.com/projects/" + state.projectId;
   }
