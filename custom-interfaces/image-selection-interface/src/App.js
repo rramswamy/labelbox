@@ -86,7 +86,7 @@ const App = () => {
     const [isReview, setIsReview] = useState(false);
     const [imgSize, setImgSize] = useState("small");
     const [darkMode, setDarkMode] = useState(false);
-    const [goHome] = useState(false)
+    //const [goHome] = useState(false)
 
     useEffect(() => {
         if(window.top !== window.self) setIsReview(true);
@@ -235,7 +235,8 @@ const App = () => {
         <div>
 
             <Toolbar
-                goHome={() => goHome()}
+
+                goHome={goHome}
                 parsedData={parsedData}
                 isReview={isReview}
                 isEditing={isEditing}
