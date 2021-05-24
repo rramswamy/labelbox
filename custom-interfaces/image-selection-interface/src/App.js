@@ -155,6 +155,8 @@ const App = () => {
         projectId: new URL(window.location.href).searchParams.get("project"),
         currentAsset: undefined
         };
+        console.log(state)
+        
         return window.location.href =
         "https://app.labelbox.com/projects/" + state.projectId;
     }
