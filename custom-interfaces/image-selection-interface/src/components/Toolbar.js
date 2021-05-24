@@ -35,6 +35,12 @@ export function Toolbar({parsedData, isReview, isEditing, mountOutput, setImgSiz
             </Dialog>
             <div id="toolbarWrapper">
 
+                      <div
+                        //class="material-icons"
+                        style="color: #9b9b9b; cursor: pointer;"
+                        onclick = {() => goHome()} 
+                         >Home</div>
+
                     {
                         parsedData.referenceImage &&
                         <Image
