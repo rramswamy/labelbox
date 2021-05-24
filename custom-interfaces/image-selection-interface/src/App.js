@@ -235,7 +235,7 @@ const App = () => {
         <div>
 
             <Toolbar
-                goHome={goHome}
+                goHome={() => goHome()}
                 parsedData={parsedData}
                 isReview={isReview}
                 isEditing={isEditing}
